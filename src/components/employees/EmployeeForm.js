@@ -7,8 +7,11 @@ export const EmployeeForm = () =>{
     const {addEmployee} = useContext(EmployeeContext)
     const {locations, getLocations} = useContext(LocationContext)
     const [employee, setEmployee] = useState({
-        name:"",
-        
+        name: "",
+        locationId: 0,
+        manager: false,
+        fullTime: false,
+        hourlyWage: 0
     })
     const history = useHistory()
 
@@ -28,6 +31,7 @@ export const EmployeeForm = () =>{
         employee.manager === "true" ? employee.manager=true : employee.manager=false
         employee.fullTime === "true" ? employee.fullTime=true : employee.fullTime=false
         employee.hourlyWage = parseFloat(employee.hourlyWage)
+        employee.locationId = parseInt(employee.locationId)
 
         addEmployee(employee)
         .then(()=>history.push("/employees"))

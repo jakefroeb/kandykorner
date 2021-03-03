@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react"
 import { ProductContext } from "../products/ProductProvider"
-import { ProductTypeContext } from "../products/ProductTypeProvider"
 import { CustomerProductContext } from "./CustomerProductProvider"
 import { CustomerContext } from "./CustomerProvider"
 import { ProductCard } from "./ProductCard"
