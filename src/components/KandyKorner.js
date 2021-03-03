@@ -9,8 +9,7 @@ export const KandyKorner = () => (
     <>
     <Route
       render={() => {
-          console.log(localStorage.getItem("kennel_customer"))
-        if (localStorage.getItem("kennel_customer")) {
+        if (localStorage.getItem("kandy_customer")) {
           return (
             <>
               <NavBar />

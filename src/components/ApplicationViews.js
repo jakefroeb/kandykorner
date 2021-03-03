@@ -1,5 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { CustomerProductList } from "./customers/CustomerProductList"
+import { CustomerProductProvider } from "./customers/CustomerProductProvider"
+import { CustomerProvider } from "./customers/CustomerProvider"
 import { EmployeeForm } from "./employees/EmployeeForm"
 import { EmployeeList } from "./employees/EmployeeList"
 import { EmployeeProvider } from "./employees/EmployeeProvider"
@@ -21,13 +24,15 @@ export const ApplicationViews = () =>{
                     <LocationList/>
                 </Route>
             </LocationProvider>
-            <ProductProvider>
-                <ProductTypeProvider>
-                    <Route path="/products">
-                        <ProductList/>
-                    </Route>
-                </ProductTypeProvider>
-            </ProductProvider>
+            <CustomerProductProvider>
+                <ProductProvider>
+                    <ProductTypeProvider>
+                        <Route path="/products">
+                            <ProductList/>
+                        </Route>
+                    </ProductTypeProvider>
+                </ProductProvider>
+            </CustomerProductProvider>
             <EmployeeProvider>
                 <Route exact path="/employees">
                     <EmployeeList />
@@ -38,7 +43,15 @@ export const ApplicationViews = () =>{
                     </Route>
                 </LocationProvider>
             </EmployeeProvider>
-
+                <ProductProvider>
+                    <CustomerProvider>
+                        <CustomerProductProvider>
+                            <Route exact path="/myorder">
+                                <CustomerProductList/>
+                            </Route>
+                        </CustomerProductProvider>
+                    </CustomerProvider>
+                </ProductProvider>
         </>
     )
 }
